@@ -1,6 +1,12 @@
 import { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
-import { FaGithubSquare, FaLinkedin, FaAngellist, FaUserAstronaut } from "react-icons/fa";
+import { Link, useHistory } from "react-router-dom";
+import {
+  FaGithubSquare,
+  FaLinkedin,
+  FaAngellist,
+  FaUserAstronaut,
+} from "react-icons/fa";
+import { CgWebsite } from "react-icons/cg";
 import { useDispatch } from "react-redux";
 import "./AboutPage.css";
 import tommyPic from "../../assets/tommy.jpg";
@@ -13,15 +19,11 @@ function AboutPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [index, setIndex] = useState();
-  const [aboutUsTab, setAboutUsTab] = useState();
   const handleLogout = () => {
     dispatch(logout());
     history.push("/");
   };
 
-  // const optionA = <div id="optionA" ></div>
-  // const optionB = <div id="optionB" >Still no cubberd. You order in once again. Your wallet takes the hit. Your food goes bad.</div>
-  // const optionC = <div id="optionC" >You add toast and mandarins to your pot and get back some delicious recipes. You might worry, “how do I choose??” Well worry not! The recipes come ranked. Want to see which recipes use the highest percentage of your ingredients? Look at the Ingredient Score. Want to see which recipes require the least shopping for new ingredients? Toggle the Shopping Score. You’ll no longer see your fridge items as “disconnected and random.” You see them for what they really are: Your dinner.</div>
   let text = <div></div>;
   switch (index) {
     case 0:
@@ -62,10 +64,6 @@ function AboutPage() {
 
   return (
     <div id="about-page" className="about-display main-display">
-      {/* <nav id="about-page-nav-bar" className="main-display-component">
-                <a href='/'>Home</a>
-                <a href='/profile'>Profile</a>
-            </nav> */}
       <nav id="about-page-nav-bar" className="main-display-component">
         <div id="about-page-nav-links" className="nav-links-div">
           <div className="nav-bar-link">
@@ -150,7 +148,11 @@ function AboutPage() {
               <a href="https://fredchien.com/" target="_blank">
                 <FaUserAstronaut />
               </a>
-              <a href="https://angel.co/u/fred-chien" className="angel-list" target="_blank">
+              <a
+                href="https://angel.co/u/fred-chien"
+                className="angel-list"
+                target="_blank"
+              >
                 <FaAngellist />
               </a>
               <a href="https://www.linkedin.com/in/fchien/" target="_blank">
@@ -169,7 +171,20 @@ function AboutPage() {
               <a href="https://github.com/arcoop/" target="_blank">
                 <FaGithubSquare />
               </a>
-              <a href="https://www.linkedin.com/in/adina-cooper/" target="_blank">
+              <a href="https://adina-cooper.com/" target="_blank">
+                <CgWebsite />
+              </a>
+              <a
+                href="https://angel.co/u/adina-cooper-1"
+                className="angel-list"
+                target="_blank"
+              >
+                <FaAngellist />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/adina-cooper/"
+                target="_blank"
+              >
                 <FaLinkedin />
               </a>
             </div>
@@ -185,15 +200,22 @@ function AboutPage() {
               <a href="https://github.com/sungyotkim" target="_blank">
                 <FaGithubSquare />
               </a>
-              <a href="https://tommykim.me" id="website-logo-tommy" target="_blank"></a>
+              <a
+                href="https://tommykim.me"
+                id="website-logo-tommy"
+                target="_blank"
+              ></a>
               <a
                 href="https://angel.co/u/sungyo-tommy-kim"
                 className="angel-list"
-               target="_blank"
-               >
+                target="_blank"
+              >
                 <FaAngellist />
               </a>
-              <a href="https://www.linkedin.com/in/sungyo-kim-ab7a30163" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/sungyo-kim-ab7a30163"
+                target="_blank"
+              >
                 <FaLinkedin />
               </a>
             </div>
@@ -209,7 +231,10 @@ function AboutPage() {
               <a href="https://github.com/Monkwire3/" target="_blank">
                 <FaGithubSquare />
               </a>
-              <a href="https://www.linkedin.com/in/clide-stefani-5772431a7/" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/clide-stefani-5772431a7/"
+                target="_blank"
+              >
                 <FaLinkedin />
               </a>
             </div>
