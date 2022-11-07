@@ -7,7 +7,7 @@ import {
   FaUserAstronaut,
 } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./AboutPage.css";
 import tommyPic from "../../assets/tommy.jpg";
 import fredPic from "../../assets/fred.jfif";
@@ -19,6 +19,8 @@ function AboutPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [index, setIndex] = useState();
+  const currentUser = useSelector((state) => state.session.user);
+
   const handleLogout = () => {
     dispatch(logout());
     history.push("/");
@@ -65,21 +67,32 @@ function AboutPage() {
   return (
     <div id="about-page" className="about-display main-display">
       <nav id="about-page-nav-bar" className="main-display-component">
-        <div id="about-page-nav-links" className="nav-links-div">
-          <div className="nav-bar-link">
-            <Link className="nav-bar-link" to="/">
-              Back to Cubberd
+        {currentUser ? (
+          <div id="about-page-nav-links" className="nav-links-div">
+            <div className="nav-bar-link">
+              <Link className="nav-bar-link" to="/">
+                Back to Cubberd
+              </Link>
+            </div>
+            <div className="nav-bar-link">
+              <Link className="nav-bar-link" to="/profile">
+                My Recipes
+              </Link>
+            </div>
+            <div onClick={handleLogout} className="nav-bar-link">
+              Logout
+            </div>
+          </div>
+        ) : (
+          <div id="about-page-nav-links-logged-out" className="nav-links-div">
+            <Link className="nav-bar-link" to={{ pathname: "/login" }}>
+              Log In
+            </Link>
+            <Link className="nav-bar-link" to={{ pathname: "/signup" }}>
+              Sign Up
             </Link>
           </div>
-          <div className="nav-bar-link">
-            <Link className="nav-bar-link" to="/profile">
-              My Recipes
-            </Link>
-          </div>
-          <div onClick={handleLogout} className="nav-bar-link">
-            Logout
-          </div>
-        </div>
+        )}
       </nav>
 
       <div id="about-page-content-top">
