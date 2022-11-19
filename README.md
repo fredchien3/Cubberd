@@ -19,6 +19,8 @@ Heroku (deployment)
 
 ## Technical implementation details
 
-## Additional Media
+## Media
+
+![cubberd thumb](https://user-images.githubusercontent.com/93765932/202854264-0c9dac3b-498a-4856-8157-0eb42475e9e0.png)
 
 <!-- ## To-dos/future features -->
